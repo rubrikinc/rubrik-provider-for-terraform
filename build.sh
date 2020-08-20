@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+rm rubrikcdm/resource_rubrik_template.go
+
 package_split=(${package//\// })
 package_name="terraform-provider-rubrik"
 

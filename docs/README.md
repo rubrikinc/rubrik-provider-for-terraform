@@ -37,8 +37,8 @@ provider "rubrik" {
 ```
 ### Environment variables
 
-You can provide your credentials via the `rubrik_cdm_node_ip`, `rubrik_cdm_username` and
-`rubrik_cdm_password`, environment variables, representing your Rubrik Node IP address, username
+You can provide your credentials via the `RUBRIK_CDM_NODE_IP`, `RUBRIK_CDM_USERNAME` and
+`RUBRIK_CDM_PASSWORD`, environment variables, representing your Rubrik Node IP address, username
 and password, respectively.
 
 ```hcl
@@ -46,9 +46,9 @@ provider "rubrik" {}
 ```
 
 ```sh
-$ export rubrik_cdm_node_ip="10.255.41.201"
-$ export rubrik_cdm_username="admin"
-$ export rubrik_cdm_password="RubrikTFDemo2019"
+$ export RUBRIK_CDM_NODE_IP="10.255.41.201"
+$ export RUBRIK_CDM_USERNAME="admin"
+$ export RUBRIK_CDM_PASSWORD="RubrikTFDemo2019"
 $ terraform plan
 ```
 
@@ -57,10 +57,10 @@ $ terraform plan
 The following arguments are supported in the Rubrik `provider` block:
 
 * `node_ip` - (Optional) The Node IP address of the Rubrik cluster you wish to connect to. The value may also be sourced from the
-`rubrik_cdm_password` environment variable.
+`RUBRIK_CDM_PASSWORD` environment variable.
 
 * `username` - (Optional) The username of the Rubrik cluster you wish to connect to. The value may also be sourced from the
-`rubrik_cdm_username` environment variable.
+`RUBRIK_CDM_USERNAME` environment variable.
 
 * `password` - (Optional) The password of the Rubrik cluster you wish to connect to. The value may also be sourced from the
-`rubrik_cdm_password` environment variable.
+`RUBRIK_CDM_PASSWORD` environment variable.

@@ -46,9 +46,9 @@ explained below:
 
 Storing credentials in environment variables is a more secure process than storing them in your source code, and it ensures that your credentials are not accidentally shared if your code is uploaded to an internal or public version control system such as GitHub. 
 
-* **rubrik_cdm_node_ip** (Contains the IP/FQDN of a Rubrik node)
-* **rubrik_cdm_username** (Contains a username with configured access to the Rubrik cluster)
-* **rubrik_cdm_password** (Contains the password for the above user).
+* **RUBRIK_CDM_NODE_IP** (Contains the IP/FQDN of a Rubrik node)
+* **RUBRIK_CDM_USERNAME** (Contains a username with configured access to the Rubrik cluster)
+* **RUBRIK_CDM_PASSWORD** (Contains the password for the above user).
 
 
 
@@ -61,9 +61,9 @@ provider "rubrik" {}
 For Microsoft Windows-based operating systems, the environment variables can be set utilizing the setx command as follows:
 
 ```
-setx rubrik_cdm_node_ip "192.168.0.100"
-setx rubrik_cdm_username "user@domain.com"
-setx rubrik_cdm_password "SecretPassword"
+setx RUBRIK_CDM_NODE_IP "192.168.0.100"
+setx RUBRIK_CDM_USERNAME "user@domain.com"
+setx RUBRIK_CDM_PASSWORD "SecretPassword"
 ```
 
 Run set without any other parameters to view current environment variables. Using setx saves the environment variables permanently, and the variables defined in the current shell will not be available until a new shell is opened. Using set instead of setx will define variables in the current shell session, but they will not be saved between sessions.
@@ -73,9 +73,9 @@ Run set without any other parameters to view current environment variables. Usin
 For macOS and \*nix based operating systems the environment variables can be set utilizing the export command as follows:
 
 ```
-export rubrik_cdm_node_ip=192.168.0.100
-export rubrik_cdm_username=user@domain.com
-export rubrik_cdm_password=SecretPassword
+export RUBRIK_CDM_NODE_IP=192.168.0.100
+export RUBRIK_CDM_USERNAME=user@domain.com
+export RUBRIK_CDM_PASSWORD=SecretPassword
 ```
 
 Run export without any other parameters to view current environment variables. In order for the environment variables to persist across terminal sessions, add the above three export commands to the `~\.bash_profile` or `~\.profile` file.
