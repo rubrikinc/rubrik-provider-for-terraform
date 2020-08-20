@@ -1,3 +1,6 @@
+## 0.2.1 (Unreleased)
+## 0.2.0 (July 06, 2020)
+
 ## 0.1.0 (Nov 22, 2019)
 
 IMPROVEMENTS:

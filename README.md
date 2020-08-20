@@ -1,39 +1,41 @@
-# Rubrik Provider for Terraform
+Terraform `Rubrik` Provider
+=========================
 
-- Website: https://www.terraform.io
+- Website: https://www.rubrik.com
 - [![Gitter chat](https://badges.gitter.im/hashicorp-terraform/Lobby.png)](https://gitter.im/hashicorp-terraform/Lobby)
 - Mailing list: [Google Groups](http://groups.google.com/group/terraform-tool)
 
 <img src="https://cdn.rawgit.com/hashicorp/terraform-website/master/content/source/assets/images/logo-hashicorp.svg" width="600px">
 
+Maintainers
+-----------
 
-# :hammer: Installation
+This provider plugin is maintained by the Terraform team at [Rubrik](https://www.rubrik.com/).
 
-Requirements: Terraform has been successfully [installed](https://learn.hashicorp.com/terraform/getting-started/install.html).
+Requirements
+------------
 
+-	[Terraform](https://www.terraform.io/downloads.html) 0.12.x
+-	[Go](https://golang.org/doc/install) 1.11 (to build the provider plugin)
 
-1. Download the latest compiled binary from [GitHub releases](https://github.com/rubrikinc/rubrik-provider-for-terraform/releases).
-   ```
-   macOS: terraform-provider-rubrik-darwin-amd64
-   Linux: terraform-provider-rubrik-linux-amd64
-   Windows: terraform-provider-rubrik-windows-amd64.exe
-   ```
+Building The Provider
+---------------------
 
-2. Move the Rubrik provider into the correct Terraform plugin directory
-   
-   ```
-   macOS: ~/.terraform.d/plugins/darwin_amd64
-   Linux: ~/.terraform.d/plugins/linux_amd64
-   Windows: %APPDATA%\terraform.d\plugins\windows_amd64
-   ```
-   
-   _You may need to manually create the `plugin` directory._
+Clone repository to: `$GOPATH/src/github.com/rubrikinc/terraform-provider-rubrik/rubrik`
 
-3. Rename the the Rubrik provider to `terraform-provider-rubrik`
+```sh
+$ git clone git@github.com:rubrikinc/terraform-provider-rubrik $GOPATH/src/github.com/rubrikinc/terraform-provider-rubrik
+```
 
-4. Run `terraform init` in the directory that contains your Terraform configuration file (`main.tf`)
+Enter the provider directory and build the provider
 
-# :blue_book: Documentation
+```sh
+$ cd $GOPATH/src/github.com/rubrikinc/terraform-provider-rubrik
+$ make build
+```
+
+Using the provider
+----------------------
 
 Here are some resources to get you started! If you find any challenges from this project are not properly documented or are unclear, please [raise an issue](https://github.com/rubrikinc/rubrik-provider-for-terraform/issues/new/choose) and let us know! This is a fun, safe environment - don't worry if you're a GitHub newbie! :heart:
 
@@ -53,17 +55,30 @@ resource "rubrik_configure_timezone" "LA-Timezone" {
 }
 ```
 
-# :muscle: How You Can Help
+Developing the Provider
+---------------------------
 
-We glady welcome contributions from the community. From updating the documentation to adding more functions for Terraform, all ideas are welcome. Thank you in advance for all of your issues, pull requests, and comments! :star:
+If you wish to work on the provider, you'll first need [Go](http://www.golang.org) installed on your machine (version 1.11+ is *required*). You'll also need to correctly setup a [GOPATH](http://golang.org/doc/code.html#GOPATH), as well as adding `$GOPATH/bin` to your `$PATH`.
 
-* [Contributing Guide](CONTRIBUTING.md)
-* [Code of Conduct](CODE_OF_CONDUCT.md)
+To compile the provider, run `make build`. This will build the provider and put the provider binary in the `$GOPATH/bin` directory.
 
-# :pushpin: License
+```sh
+$ make bin
+...
+$ $GOPATH/bin/terraform-provider-rubrik
+...
+```
 
-* [MIT License](LICENSE)
+In order to test the provider, you can simply run `make test`.
 
-# :point_right: About Rubrik Build
+```sh
+$ make test
+```
 
-We encourage all contributors to become members. We aim to grow an active, healthy community of contributors, reviewers, and code owners. Learn more in our [Welcome to the Rubrik Build Community](https://github.com/rubrikinc/welcome-to-rubrik-build) page.
+In order to run the full suite of Acceptance tests, run `make testacc`.
+
+*Note:* Acceptance tests create real resources, and often cost money to run.
+
+```sh
+$ make testacc
+```

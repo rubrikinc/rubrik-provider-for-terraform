@@ -1,4 +1,4 @@
-module github.com/rubrikinc/rubrik-provider-for-terraform
+module github.com/terraform-providers/terraform-provider-rubrik
 
 go 1.13
 

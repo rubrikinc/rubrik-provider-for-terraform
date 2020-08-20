@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/hashicorp/terraform-plugin-sdk/plugin"
-	"github.com/rubrikinc/rubrik-provider-for-terraform/rubrikcdm"
+	"github.com/terraform-providers/terraform-provider-rubrik/rubrik"
 )
 
 func main() {
