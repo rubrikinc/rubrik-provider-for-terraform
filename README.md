@@ -11,27 +11,35 @@
 
 Requirements: Terraform has been successfully [installed](https://learn.hashicorp.com/terraform/getting-started/install.html).
 
+Download the latest compiled binary from [GitHub Releases](https://github.com/rubrikinc/rubrik-provider-for-terraform/releases):
+````
+macOS: terraform-provider-rubrik-darwin-amd64
+Linux: terraform-provider-rubrik-linux-amd64
+Windows: terraform-provider-rubrik-windows-amd64.exe
+````
+Move the Rubrik provider into the correct Terraform plugin directory:
 
-1. Download the latest compiled binary from [GitHub releases](https://github.com/rubrikinc/rubrik-provider-for-terraform/releases).
-   ```
-   macOS: terraform-provider-rubrik-darwin-amd64
-   Linux: terraform-provider-rubrik-linux-amd64
-   Windows: terraform-provider-rubrik-windows-amd64.exe
-   ```
+**For Terraform 0.12 and earlier:**
+````
+macOS: ~/.terraform.d/plugins/darwin_amd64
+Linux: ~/.terraform.d/plugins/linux_amd64
+Windows: %APPDATA%\terraform.d\plugins\windows_amd64
+`````
+Note: _You may need to create the plugins directory._
 
-2. Move the Rubrik provider into the correct Terraform plugin directory
-   
-   ```
-   macOS: ~/.terraform.d/plugins/darwin_amd64
-   Linux: ~/.terraform.d/plugins/linux_amd64
-   Windows: %APPDATA%\terraform.d\plugins\windows_amd64
-   ```
-   
-   _You may need to manually create the `plugin` directory._
+**For Terraform 0.13 and later:**
+````
+macOS: ~/.terraform.d/plugins/build.rubrik.com/rubrik/rubrik/1.04/darwin_amd64
+Linux: ~/.terraform.d/plugins/build.rubrik.com/rubrik/rubrik/1.04/linux_amd64
+Windows: %APPDATA%\terraform.d\plugins\build.rubrik.com\rubrik\rubrik\1.04\windows_amd64
+`````
+Note: _You may need to create the containing directory structure._
 
-3. Rename the the Rubrik provider to `terraform-provider-rubrik`
+Rename the Rubrik provider to: terraform-provider-rubrik_v1.0.4
 
-4. Run `terraform init` in the directory that contains your Terraform configuration file (`main.tf`)
+Note: _On Windows systems, ensure you keep the .exe file extension for the downloaded provider binary._
+
+Run `terraform init` in the directory that contains your Terraform configuration file, e.g. `main.tf`.
 
 # :blue_book: Documentation
 
@@ -43,7 +51,7 @@ Here are some resources to get you started! If you find any challenges from this
 * [VIDEO: Getting Started with the Rubrik Provider for Terraform](https://www.youtube.com/watch?v=kV1xiP1tHY0)
 * [BLOG: Using Terraform with Rubrik Just Got Easier!](https://www.rubrik.com/blog/rubrik-provider-terraform/)
 
-## :mag: Example 
+## :mag: Example
 
 ```hcl
 provider "rubrik" {}
